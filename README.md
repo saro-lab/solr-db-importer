@@ -2,12 +2,13 @@
 - Support Solr 9.0 or later
   - Alternative solr DIH (deprecated in Solr 9.0)
 - Support DB
-  - h2
   - mariadb
+  - oracle
   - mssql
   - mysql
-  - oracle
   - postgresql
+  - h2
+- JDK 11 or later
 
 # Quick Start
 - download [solr-db-importer-1.0.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.0/solr-db-importer-1.0.jar)
