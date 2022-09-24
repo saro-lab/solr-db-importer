@@ -35,7 +35,6 @@ class NewConfExample {
                             <username>username</username>
                             <password>password</password>
                             <bulkExecuteRowCount>1000</bulkExecuteRowCount>
-                            <removeXmlTagFields>field1, field2</removeXmlTagFields>
                             <solrSchemaUrl>http://localhost:8983/solr/schema_name</solrSchemaUrl>
                             <select><![CDATA[
                                 SELECT

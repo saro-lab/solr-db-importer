@@ -6,7 +6,6 @@ data class Conf(
     var username: String = "",
     var password: String = "",
     var bulkExecuteRowCount: Int = 0,
-    var removeXmlTagFields: String = "",
     var solrSchemaUrl: String = "",
     var select: String = "",
 ) {
@@ -19,7 +18,6 @@ data class Conf(
         this.username = this.username.trim()
         this.password = this.password.trim()
         this.solrSchemaUrl = this.solrSchemaUrl.trim()
-        this.removeXmlTagFields = this.removeXmlTagFields.trim()
     }
 
     fun validate() {
