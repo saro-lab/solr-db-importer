@@ -1,11 +1,51 @@
-# solr-db-importer
-
-Database to solr
+# Solr DB Importer
+- Support Solr 9.0 or later
+  - Alternative solr DIH (deprecated in Solr 9.0)
+- Support DB
+  - h2
+  - mariadb
+  - mssql
+  - mysql
+  - oracle
+  - postgresql
 
 # Quick Start
-
+- download [solr-db-importer-1.0.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.0/solr-db-importer-1.0.jar)
+  ```
+  java -jar solr-db-importer-1.0.jar
+  # created examples
+  ```
+- copy db-import.xml
+  ```
+  # example
+  cp ./examples/db-import-mariadb.xml ./db-import.xml
+  ```
+- modify db-import.xml
+  ```
+  <conf>
+    <driver>org.mariadb.jdbc.Driver</driver>
+    <jdbcUrl>jdbc:mariadb://localhost:3306/dbname</jdbcUrl>
+    <username>username</username>
+    <password>password</password>
+    <bulkExecuteRowCount>1000</bulkExecuteRowCount>
+    <solrSchemaUrl>http://localhost:8983/solr/schema_name</solrSchemaUrl>
+    <select><![CDATA[
+        SELECT
+            text_sn as id,
+            title as subject,
+            reg_dt
+        FROM test_table
+        WHERE text_sn > 0
+    ]]></select>
+  </conf>
+  ```
+- execute again
+  ```
+  java -jar solr-db-importer-1.0.jar
+  ```
 
 # how to build
-```aidl
-gradlew jar 
 ```
+gradlew jar
+```
+- build/libs/solr-db-importer-{version}.jar
