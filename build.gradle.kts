@@ -13,6 +13,8 @@ repositories {
 }
 
 dependencies {
+
+    // drivers
     implementation("com.oracle.database.jdbc:ojdbc10:19.16.0.0")
     implementation("com.oracle.database.jdbc:ojdbc8:21.7.0.0")
     implementation("com.oracle.database.jdbc:ojdbc6:11.2.0.4")
@@ -27,6 +29,10 @@ dependencies {
     implementation("org.hsqldb:hsqldb:2.7.0")
     implementation("com.h2database:h2:2.1.214")
     implementation("org.apache.derby:derby:10.15.2.0")
+
+    // xml
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.4")
+    implementation("com.fasterxml.woodstox:woodstox-core:6.3.1")
 
     testImplementation(kotlin("test"))
 }

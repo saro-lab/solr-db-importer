@@ -1,4 +1,6 @@
-import domain.conf.ReadConf
+import domain.conf.ports.NewConfExample
+import domain.conf.ports.ReadConf
+import domain.dbimport.ports.ImportData
 
 fun main(args: Array<String>) {
     println("""
@@ -10,4 +12,9 @@ fun main(args: Array<String>) {
 
     val conf = ReadConf().handle()
 
+    if (conf != null) {
+        ImportData().handle(conf)
+    } else {
+        NewConfExample().handle()
+    }
 }
