@@ -30,6 +30,9 @@ dependencies {
     implementation("com.h2database:h2:2.1.214")
     implementation("org.apache.derby:derby:10.15.2.0")
 
+    // RestTemplate
+    implementation("org.springframework:spring-web:5.3.23")
+
     // xml
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.4")
     implementation("com.fasterxml.woodstox:woodstox-core:6.3.1")
