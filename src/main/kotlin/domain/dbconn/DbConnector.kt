@@ -3,7 +3,6 @@ package domain.dbconn
 import domain.conf.Conf
 import java.sql.DriverManager
 import java.sql.ResultSet
-import java.sql.ResultSetMetaData
 
 class DbConnector {
     companion object {

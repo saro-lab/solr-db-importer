@@ -21,7 +21,7 @@ class SolrConnector(
         val url = "$solrSchemaUrl/update?commit=true"
         val data = list.joinToString(",", "[", "]")
 
-        val rest: String? = restTemplate.postForObject(url, HttpEntity<String>(data, headers), String::class.java)
+        restTemplate.postForObject(url, HttpEntity<String>(data, headers), String::class.java)
 
         list.clear()
     }

@@ -1,10 +1,12 @@
+package app
+
 import domain.conf.Conf
 import domain.conf.NewConfExample
 import domain.conf.ReadConf
 import domain.dbconn.DbConnector
 import domain.dbimport.ImportData
 
-fun main(args: Array<String>) {
+fun main() {
     println("""
         ----------------------------------------------------
         Solr DB importer

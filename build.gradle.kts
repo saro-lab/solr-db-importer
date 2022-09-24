@@ -48,7 +48,20 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
 }
 
-application {
-    mainClass.set("MainKt")
+tasks.jar {
+    manifest {
+        attributes(mapOf("Main-Class" to "app.SolrDataImporterKt"))
+    }
+    val dependencies = configurations
+        .runtimeClasspath
+        .get()
+        .map(::zipTree) // OR .map { zipTree(it) }
+    from(dependencies)
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    exclude("META-INF/*.RSA", "META-INF/*.SF", "META-INF/*.DSA")
+
 }
 
+application {
+    mainClass.set("app.SolrDataImporterKt")
+}
