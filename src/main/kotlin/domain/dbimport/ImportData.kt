@@ -39,7 +39,8 @@ class ImportData(
         md = rs.metaData
         val columnCount = md.columnCount
 
-        columns = (1 .. columnCount).map { md.getColumnName(it) }
+        columns = (1 .. columnCount).map { md.getColumnLabel(it) }
+
         solr = SolrConnector(conf.solrSchemaUrl)
     }
 
