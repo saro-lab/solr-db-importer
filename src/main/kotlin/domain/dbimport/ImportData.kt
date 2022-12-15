@@ -45,7 +45,7 @@ class ImportData(
     }
 
     private fun toJson(): String {
-        val map = mutableMapOf<String, String>()
+        val map = mutableMapOf<String, String?>()
 
         columns.forEachIndexed { i, name ->
             map[name] = rs.getString(i + 1)
