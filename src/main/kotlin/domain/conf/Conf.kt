@@ -21,8 +21,8 @@ data class Conf(
     }
 
     fun validate() {
-        if (bulkExecuteRowCount < 100 || bulkExecuteRowCount > 100000) {
-            throw RuntimeException("bulkExecuteRowCount must be greater than 100 and less than 100000.")
+        if (bulkExecuteRowCount < 10 || bulkExecuteRowCount > 100000) {
+            throw RuntimeException("bulkExecuteRowCount must be greater than 10 and less than 100000.")
         }
     }
 }

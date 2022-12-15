@@ -11,9 +11,9 @@
 - JDK 11 or later
 
 # Quick Start
-- download [solr-db-importer-1.1.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.1/solr-db-importer-1.1.jar)
+- download [solr-db-importer-1.2.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.1/solr-db-importer-1.2.jar)
   ```
-  java -jar solr-db-importer-1.1.jar
+  java -jar solr-db-importer-1.2.jar
   # created examples
   ```
 - copy db-import.xml
@@ -42,7 +42,7 @@
   ```
 - execute again
   ```
-  java -jar solr-db-importer-1.1.jar
+  java -jar solr-db-importer-1.2.jar
   ```
 
 # how to build
