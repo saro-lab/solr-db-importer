@@ -11,7 +11,7 @@
 - JDK 11 or later
 
 # Quick Start
-- download [solr-db-importer-1.3.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.1/solr-db-importer-1.3.jar)
+- download [solr-db-importer-1.3.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.3/solr-db-importer-1.3.jar)
   ```
   java -jar solr-db-importer-1.3.jar
   # created examples
