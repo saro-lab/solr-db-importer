@@ -10,28 +10,32 @@ class ImportData(
     private val conf: Conf,
     private val rs: ResultSet
 ) {
-    private var objectMapper: ObjectMapper = ObjectMapper()
     private lateinit var md: ResultSetMetaData
     private lateinit var columns: List<String>
     private lateinit var solr: SolrConnector
+    private val maxLen: Int = Short.MAX_VALUE.toInt() * 10
+    private val om = ObjectMapper()
 
     fun handle() {
         init()
 
-        val list = mutableListOf<String>()
+        //val list = mutableListOf<String>()
+        val sb = StringBuilder(maxLen).append('[')
         val flushSize = conf.bulkExecuteRowCount
         var index = 0
 
         while (rs.next()) {
-            list.add(toJson())
+            bindJson(sb)
 
-            if (++index % flushSize == 0) {
-                solr.update(list)
+            if (++index % flushSize == 0 || sb.length > maxLen) {
+                solr.update(sb.append(']'))
+                sb.setLength(0)
+                sb.append('[')
                 println("update row $index")
             }
         }
 
-        solr.update(list)
+        solr.update(sb.append(']'))
         println("update row $index - done")
     }
 
@@ -44,13 +48,28 @@ class ImportData(
         solr = SolrConnector(conf.solrSchemaUrl)
     }
 
-    private fun toJson(): String {
-        val map = mutableMapOf<String, String?>()
+    private fun bindJson(sb: StringBuilder) {
+
+        if (sb.length > 1) {
+            sb.append(',')
+        }
+        sb.append('{')
+
+        var first = true;
 
         columns.forEachIndexed { i, name ->
-            map[name] = rs.getString(i + 1)
+            val v = rs.getString(i + 1)
+            if (!first) {
+                sb.append(',');
+            } else {
+                first = false;
+            }
+            if (v != null) {
+
+                sb.append('"').append(name).append("\":").append(om.writeValueAsString(v))
+            }
         }
 
-        return objectMapper.writeValueAsString(map)
+        sb.append('}')
     }
 }

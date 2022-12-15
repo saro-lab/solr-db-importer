@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "me.saro"
-version = "1.2"
+version = "1.3"
 
 repositories {
     mavenCentral()

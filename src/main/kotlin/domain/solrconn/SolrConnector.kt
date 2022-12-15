@@ -10,8 +10,8 @@ class SolrConnector(
     private val restTemplate: RestTemplate = RestTemplate()
 ) {
 
-    fun update(list: MutableList<String>) {
-        if (list.isEmpty()) {
+    fun update(sb: StringBuilder) {
+        if (sb.length <= 2) {
             return
         }
 
@@ -19,10 +19,8 @@ class SolrConnector(
         headers.contentType = MediaType.APPLICATION_JSON
 
         val url = "$solrSchemaUrl/update?commit=true"
-        val data = list.joinToString(",", "[", "]")
+        val data = sb.toString()
 
         restTemplate.postForObject(url, HttpEntity<String>(data, headers), String::class.java)
-
-        list.clear()
     }
 }
