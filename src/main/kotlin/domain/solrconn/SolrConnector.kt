@@ -3,11 +3,13 @@ package domain.solrconn
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
+import org.springframework.http.client.SimpleClientHttpRequestFactory
 import org.springframework.web.client.RestTemplate
+
 
 class SolrConnector(
     private val solrSchemaUrl: String,
-    private val restTemplate: RestTemplate = RestTemplate()
+    private val restTemplate: RestTemplate = RestTemplate(SimpleClientHttpRequestFactory().apply { setBufferRequestBody(false) })
 ) {
 
     fun update(sb: StringBuilder) {
