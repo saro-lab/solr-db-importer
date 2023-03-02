@@ -12,6 +12,9 @@ fun main() {
         Solr DB importer
         github: https://github.com/saro-lab/solr-db-importer
         ----------------------------------------------------
+        
+        Loading .....
+        
     """.trimIndent())
 
     val conf: Conf? = ReadConf.handle()
