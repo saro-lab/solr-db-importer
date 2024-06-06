@@ -50,3 +50,8 @@
 gradlew jar
 ```
 - build/libs/solr-db-importer-{version}.jar
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=saro-lab/solr-db-importer&type=Date)](https://star-history.com/#saro-lab/solr-db-importer&Date)
