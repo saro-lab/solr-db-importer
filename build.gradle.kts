@@ -32,7 +32,7 @@ dependencies {
     implementation("org.apache.derby:derby:10.17.1.0")
 
     // RestTemplate
-    implementation("org.springframework:spring-web:6.1.12")
+    implementation("org.springframework:spring-web:5.3.39")
 
     // xml
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.18.1")
