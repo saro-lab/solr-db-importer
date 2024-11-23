@@ -18,7 +18,10 @@ class NewConfExample {
             DbmsVars.dbmsMap.values.forEach(this::makeExampleFile)
 
             println()
-            println("""create ${ConfVars.CONF_FILE_NAME} referring to the example file and run it again.""")
+            println("""create import config file referring to the example files.""")
+            println()
+            println("Usage:")
+            println("""java -jar solr-db-importer-1.5.jar config-file.xml""")
         }
 
         private fun makeExampleFile(dbms: Dbms) {

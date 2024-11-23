@@ -6,7 +6,7 @@ import domain.conf.ReadConf
 import domain.dbconn.DbConnector
 import domain.dbimport.ImportData
 
-fun main() {
+fun main(args: Array<String>) {
     println("""
         ----------------------------------------------------
         Solr DB importer
@@ -17,13 +17,16 @@ fun main() {
         
     """.trimIndent())
 
-    val conf: Conf? = ReadConf.handle()
-
-    if (conf != null) {
-        DbConnector.conn(conf) { rs ->
-            ImportData(conf, rs).handle()
+    when (args.size) {
+        0 -> NewConfExample.handle()
+        1 -> {
+            ReadConf.handle(args.first())
+                ?.run {
+                    DbConnector.conn(this) { rs ->
+                        ImportData(this, rs).handle()
+                    }
+                }
         }
-    } else {
-        NewConfExample.handle()
+        else -> println("The parameter allows only a single configuration file path.")
     }
 }

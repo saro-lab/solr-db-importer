@@ -8,10 +8,12 @@ import java.io.File
 
 class ReadConf {
     companion object {
-        fun handle(): Conf? {
-            val file = File(ConfVars.CONF_FILE_NAME)
+        fun handle(path: String): Conf? {
+            val file = File(path)
 
             if (!file.exists()) {
+                println("not found conf file: ${file.canonicalPath}")
+                println()
                 return null
             }
 

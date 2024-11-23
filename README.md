@@ -11,16 +11,12 @@
 - JDK 11 or later
 
 # Quick Start
-- download [solr-db-importer-1.4.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.4/solr-db-importer-1.4.jar)
+- download [solr-db-importer-1.5.jar](https://github.com/saro-lab/solr-db-importer/releases/download/1.5/solr-db-importer-1.5.jar)
   ```
-  java -jar solr-db-importer-1.4.jar
+  java -jar solr-db-importer-1.5.jar
   # created examples
   ```
-- copy db-import.xml
-  ```
-  # example
-  cp ./examples/db-import-mariadb.xml ./db-import.xml
-  ```
+  
 - modify db-import.xml
   ```
   <conf>
@@ -42,7 +38,7 @@
   ```
 - execute again
   ```
-  java -jar solr-db-importer-1.4.jar
+  java -jar solr-db-importer-1.5.jar path/to/db-import.xml
   ```
 
 # how to build
